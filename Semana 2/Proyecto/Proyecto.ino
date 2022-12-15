@@ -113,6 +113,7 @@ byte rowPins[ROWS] = {51, 49, 47, 45};
 byte colPins[COLS] = {43, 41, 39, 37};
 //connect to the column pinouts of the keypad
 char password[4] = "1234";
+char passwordAux[4] = "****";
 char cantidad[4];
 char key;
 int trys = 1, cont = 0;
@@ -125,77 +126,65 @@ Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 const int rs = 12, en = 11, d4 = 2, d5 = 3, d6 = 4, d7 = 5;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-AsyncTask asyncGetContra(1000, true, [](){  key = keypad.getKey(); });
-
-AsyncTask ascynCompararContra(1000, true, [](){
-                                if (key != NO_KEY)
-                                {
-                                    cantidad[cont] = key;
-                                    Serial.println(cantidad[cont]);
-                                    lcd.setCursor(cont, 0);
-                                    lcd.print(cantidad[cont]);
-                                    cont++;
-                                    if (cont == 4)
-                                    {
-                                        if (strncmp(password, cantidad, 4) == 0)
-                                        {
-                                            Serial.println("Contra correcta");
-                                            digitalWrite(LED_GREEN, HIGH);
+AsyncTask asyncGetContra(1000, true, [](){  key = keypad.getKey();
                                             lcd.clear();
                                             lcd.setCursor(0, 0);
-                                            lcd.print("Correcto");
-                                            delay(3000);
-                                            trys = 1;
-                                            lcd.clear();
-                                        }
-                                        else
-                                        {
-                                            Serial.println("Contra incorrecta");
-                                            lcd.clear();
-                                            lcd.setCursor(0, 0);
-                                            lcd.print("Incorrecto");
+                                            lcd.print("Ingrese la clave");
                                             lcd.setCursor(0, 1);
-                                            lcd.print(trys);
-                                            trys++;
-                                            if (trys == 4)
+                                            lcd.print(passwordAux[cont]); });
+
+AsyncTask ascynCompararContra(1000, true, [](){ if (key != NO_KEY)
+                                                {
+                                                    cantidad[cont] = key;
+                                                    cont++;
+                                                    if (cont == 4)
+                                                    {
+                                                        if (strncmp(password, cantidad, 4) == 0)
+                                                        {
+                                                            digitalWrite(LED_GREEN, HIGH);
+                                                            lcd.clear();
+                                                            lcd.setCursor(0, 0);
+                                                            lcd.print("Correcto");
+                                                            trys = 1;
+                                                            lcd.clear();
+                                                        }
+                                                        else
+                                                        {
+                                                            lcd.clear();
+                                                            lcd.setCursor(0, 0);
+                                                            lcd.print("Incorrecto");
+                                                            lcd.setCursor(0, 1);
+                                                            lcd.print(trys);
+                                                            trys++;
+                                                            digitalWrite(LED_BLUE, HIGH);
+                                                            lcd.clear();
+                                                        }
+                                                        digitalWrite(LED_GREEN, LOW);
+                                                        digitalWrite(LED_BLUE, LOW);
+                                                        cont = 0;
+                                                    }
+                                                }});
+
+AsyncTask asyncSystemBlock(1000, true, [](){if (trys == 3)
                                             {
                                                 digitalWrite(LED_RED, HIGH);
                                                 digitalWrite(BUZZER, HIGH);
                                                 lcd.clear();
                                                 lcd.setCursor(0, 0);
                                                 lcd.print("System Block");
-                                                for (int i = 0; i < 25; i++)
+                                                for (int i = 0; i < 25; i++) // bucle repite 25 veces
                                                 {
-                                                    // bucle repite 25 veces
-                                                    int duracion = 1000 / duraciones[i];
-                                                    // duracion de la nota en milisegundos
-                                                    tone(BUZZER, melodia[i], duracion); // ejecuta el tono con la duracion
-                                                    int pausa = duracion * 1.30;
-                                                    // calcula pausa
-                                                    delay(pausa);
-                                                    // demora con valor de pausa
-                                                    noTone(BUZZER);
-                                                    // detiene reproduccion de tono         
+                                                    int duracion = 1000 / duraciones[i]; // duracion de la nota en milisegundos
+                                                    tone(BUZZER, melodia[i], duracion);  // ejecuta el tono con la duracion
+                                                    int pausa = duracion * 1.30;         // calcula pausa
+                                                    delay(pausa);                        // demora con valor de pausa
+                                                    noTone(BUZZER);                      // detiene reproduccion de tono         
                                                 }
                                                 trys = 1;
                                                 lcd.clear();
-                                            }
-                                            else
-                                            {
-                                                digitalWrite(LED_BLUE, HIGH);
-                                                delay(500);
-                                                lcd.clear();
-                                                lcd.setCursor(0, 0);
-                                            }
-                                        }
-                                        digitalWrite(LED_GREEN, LOW);
-                                        digitalWrite(LED_BLUE, LOW);
-                                        digitalWrite(LED_RED, LOW);
-                                        digitalWrite(BUZZER, LOW);
-                                        cont = 0;
-                                    }
-                                }
-                            });
+                                                digitalWrite(LED_RED, LOW);
+                                                digitalWrite(BUZZER, LOW);
+                                            }});
 
 void setup()
 {
@@ -205,78 +194,15 @@ void setup()
     pinMode(LED_RED, OUTPUT);
     lcd.begin(16, 2);
     pinMode(BUZZER, OUTPUT);
-    digitalWrite(BUZZER, LOW);
+    digitalWrite(BUZZER, HIGH);
+    asyncGetContra.Start();
+    ascynCompararContra.Start();
+    asyncSystemBlock.Start();    
 }
 
 void loop()
 {
-    char key = keypad.getKey();
-
-    if (key != NO_KEY)
-    {
-        cantidad[cont] = key;
-        Serial.println(cantidad[cont]);
-        lcd.setCursor(cont, 0);
-        lcd.print(cantidad[cont]);
-        cont++;
-        if (cont == 4)
-        {
-            if (strncmp(password, cantidad, 4) == 0)
-            {
-                Serial.println("Contra correcta");
-                digitalWrite(LED_GREEN, HIGH);
-                lcd.clear();
-                lcd.setCursor(0, 0);
-                lcd.print("Correcto");
-                delay(3000);
-                trys = 1;
-                lcd.clear();
-            }
-            else
-            {
-                Serial.println("Contra incorrecta");
-                lcd.clear();
-                lcd.setCursor(0, 0);
-                lcd.print("Incorrecto");
-                lcd.setCursor(0, 1);
-                lcd.print(trys);
-                trys++;
-                if (trys == 4)
-                {
-                    digitalWrite(LED_RED, HIGH);
-                    digitalWrite(BUZZER, HIGH);
-                    lcd.clear();
-                    lcd.setCursor(0, 0);
-                    lcd.print("System Block");
-                    for (int i = 0; i < 25; i++)
-                    {
-                        // bucle repite 25 veces
-                        int duracion = 1000 / duraciones[i];
-                        // duracion de la nota en milisegundos
-                        tone(BUZZER, melodia[i], duracion); // ejecuta el tono con la duracion
-                        int pausa = duracion * 1.30;
-                        // calcula pausa
-                        delay(pausa);
-                        // demora con valor de pausa
-                        noTone(BUZZER);
-                        // detiene reproduccion de tono         
-                    }
-                    trys = 1;
-                    lcd.clear();
-                }
-                else
-                {
-                    digitalWrite(LED_BLUE, HIGH);
-                    delay(500);
-                    lcd.clear();
-                    lcd.setCursor(0, 0);
-                }
-            }
-            digitalWrite(LED_GREEN, LOW);
-            digitalWrite(LED_BLUE, LOW);
-            digitalWrite(LED_RED, LOW);
-            digitalWrite(BUZZER, LOW);
-            cont = 0;
-        }
-    }
+    asyncGetContra.Update();
+    ascynCompararContra.Update();
+    asyncSystemBlock.Update();
 }
