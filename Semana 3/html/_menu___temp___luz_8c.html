@@ -1,0 +1,1257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Menu_Temp_Luz: Referencia del Archivo Menu_Temp_Luz.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Menu_Temp_Luz<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">Gestion de Temperatura y Luz</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del Archivo Menu_Temp_Luz.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;LiquidCrystal_I2C.h&gt;</code><br />
+<code>#include &lt;LiquidMenu.h&gt;</code><br />
+<code>#include &lt;Keypad.h&gt;</code><br />
+<code>#include &lt;EasyBuzzer.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a28b1f6536669a9f56fa8b581e6937328"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a28b1f6536669a9f56fa8b581e6937328">BUZZER_PASIVO</a>&#160;&#160;&#160;13</td></tr>
+<tr class="memdesc:a28b1f6536669a9f56fa8b581e6937328"><td class="mdescLeft">&#160;</td><td class="mdescRight">configuracion de los pines de los leds, el buzzer pasivo, el LCD I2C y el teclado matricial  <a href="_menu___temp___luz_8c.html#a28b1f6536669a9f56fa8b581e6937328">Más...</a><br /></td></tr>
+<tr class="separator:a28b1f6536669a9f56fa8b581e6937328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31e20330f8ce94e0dd10b005a15c5898"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a31e20330f8ce94e0dd10b005a15c5898">LED_RED</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a31e20330f8ce94e0dd10b005a15c5898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca338dbd19d7940923334629f6e5f3b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aca338dbd19d7940923334629f6e5f3b7">LED_GREEN</a>&#160;&#160;&#160;11</td></tr>
+<tr class="separator:aca338dbd19d7940923334629f6e5f3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e40566d27689f8581d7b0f12271d45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#ae2e40566d27689f8581d7b0f12271d45">LED_BLUE</a>&#160;&#160;&#160;12</td></tr>
+<tr class="separator:ae2e40566d27689f8581d7b0f12271d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf1b110324fd8383fe7404e7932189b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#acf1b110324fd8383fe7404e7932189b9">DEFAULT_TEMPHIGH</a>&#160;&#160;&#160;29</td></tr>
+<tr class="memdesc:acf1b110324fd8383fe7404e7932189b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valores por defecto de los umbrales de temperatura y luz, y valores maximos de temperatura y luz Valor de simulacion de sensor de temperatura DHT11.  <a href="_menu___temp___luz_8c.html#acf1b110324fd8383fe7404e7932189b9">Más...</a><br /></td></tr>
+<tr class="separator:acf1b110324fd8383fe7404e7932189b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe7a9e726ecec741b2e57e96d1a9aa0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#acbe7a9e726ecec741b2e57e96d1a9aa0">DEFAULT_TEMPLOW</a>&#160;&#160;&#160;26</td></tr>
+<tr class="separator:acbe7a9e726ecec741b2e57e96d1a9aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31617972a802e7a13f402be9db555bc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a31617972a802e7a13f402be9db555bc3">DEFAULT_LUZHIGH</a>&#160;&#160;&#160;800</td></tr>
+<tr class="separator:a31617972a802e7a13f402be9db555bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e6b84e2cd64d473169ca5f8e013370"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a74e6b84e2cd64d473169ca5f8e013370">DEFAULT_LUZLOW</a>&#160;&#160;&#160;300</td></tr>
+<tr class="separator:a74e6b84e2cd64d473169ca5f8e013370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4c411514c5cbfa898a52b3d2ae68fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a1a4c411514c5cbfa898a52b3d2ae68fd">TEST_TEMP</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a1a4c411514c5cbfa898a52b3d2ae68fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8ea54a2630aaf2ae3f2bd5fa886959"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aed8ea54a2630aaf2ae3f2bd5fa886959">MAX_TEMP</a>&#160;&#160;&#160;125</td></tr>
+<tr class="separator:aed8ea54a2630aaf2ae3f2bd5fa886959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4568063ebff6ebfe1a8fa27b6e097d8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a4568063ebff6ebfe1a8fa27b6e097d8b">MAX_LIGTH</a>&#160;&#160;&#160;1023</td></tr>
+<tr class="separator:a4568063ebff6ebfe1a8fa27b6e097d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ae084e1bc8ccb35ea289ba0ca4972ea6d"><td class="memItemLeft" align="right" valign="top">LiquidCrystal_I2C&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#ae084e1bc8ccb35ea289ba0ca4972ea6d">lcd</a> (0x27, 16, 2)</td></tr>
+<tr class="separator:ae084e1bc8ccb35ea289ba0ca4972ea6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d15eff9d4f7d6c34270303a63c8b72e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a6d15eff9d4f7d6c34270303a63c8b72e">readKeypad</a> ()</td></tr>
+<tr class="memdesc:a6d15eff9d4f7d6c34270303a63c8b72e"><td class="mdescLeft">&#160;</td><td class="mdescRight">readKeypad Lee los numeros que se ingresen por el keypad lo transforma a int y lo retorna  <a href="_menu___temp___luz_8c.html#a6d15eff9d4f7d6c34270303a63c8b72e">Más...</a><br /></td></tr>
+<tr class="separator:a6d15eff9d4f7d6c34270303a63c8b72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03334966afdf98975996f65b35421f5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a03334966afdf98975996f65b35421f5d">editar_valor</a> (String titulo, byte *varimp)</td></tr>
+<tr class="separator:a03334966afdf98975996f65b35421f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa641cab3aeccf0a4ac08cd937b5af13d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aa641cab3aeccf0a4ac08cd937b5af13d">color</a> (unsigned char red, unsigned char green, unsigned char blue)</td></tr>
+<tr class="memdesc:aa641cab3aeccf0a4ac08cd937b5af13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">color Genera el color que se le pase por parametro  <a href="_menu___temp___luz_8c.html#aa641cab3aeccf0a4ac08cd937b5af13d">Más...</a><br /></td></tr>
+<tr class="separator:aa641cab3aeccf0a4ac08cd937b5af13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97af450f09530d7b36896a21e54716fa"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a97af450f09530d7b36896a21e54716fa">screen_1_line_1</a> (0, 0, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[0])</td></tr>
+<tr class="separator:a97af450f09530d7b36896a21e54716fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bac7a9466919d326250ae0193a7a329"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a7bac7a9466919d326250ae0193a7a329">screen_1_line_2</a> (0, 1, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[1])</td></tr>
+<tr class="separator:a7bac7a9466919d326250ae0193a7a329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c361611d8e3e9da9bd451f74301d62e"><td class="memItemLeft" align="right" valign="top">LiquidScreen&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a1c361611d8e3e9da9bd451f74301d62e">screen_1</a> (<a class="el" href="_menu___temp___luz_8c.html#a97af450f09530d7b36896a21e54716fa">screen_1_line_1</a>, <a class="el" href="_menu___temp___luz_8c.html#a7bac7a9466919d326250ae0193a7a329">screen_1_line_2</a>)</td></tr>
+<tr class="separator:a1c361611d8e3e9da9bd451f74301d62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22109d3a504a7b73863e3d3bf27d6836"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a22109d3a504a7b73863e3d3bf27d6836">screen_2_line_1</a> (0, 0, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[1])</td></tr>
+<tr class="separator:a22109d3a504a7b73863e3d3bf27d6836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f1e62bf9400f4c0ddea7c0a6068093d"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a4f1e62bf9400f4c0ddea7c0a6068093d">screen_2_line_2</a> (0, 1, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[2])</td></tr>
+<tr class="separator:a4f1e62bf9400f4c0ddea7c0a6068093d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b6a3c67d0371c73e63bc7049c89a8d"><td class="memItemLeft" align="right" valign="top">LiquidScreen&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a52b6a3c67d0371c73e63bc7049c89a8d">screen_2</a> (<a class="el" href="_menu___temp___luz_8c.html#a22109d3a504a7b73863e3d3bf27d6836">screen_2_line_1</a>, <a class="el" href="_menu___temp___luz_8c.html#a4f1e62bf9400f4c0ddea7c0a6068093d">screen_2_line_2</a>)</td></tr>
+<tr class="separator:a52b6a3c67d0371c73e63bc7049c89a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545d0595a9cb68c59ccf7fbcb4c4d660"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a545d0595a9cb68c59ccf7fbcb4c4d660">screen_3_line_1</a> (0, 0, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[2])</td></tr>
+<tr class="separator:a545d0595a9cb68c59ccf7fbcb4c4d660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f28a7e41f260499e5437b6c06e0063"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a65f28a7e41f260499e5437b6c06e0063">screen_3_line_2</a> (0, 1, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[3])</td></tr>
+<tr class="separator:a65f28a7e41f260499e5437b6c06e0063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d5138f50d727836630860b0f785d2d5"><td class="memItemLeft" align="right" valign="top">LiquidScreen&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a8d5138f50d727836630860b0f785d2d5">screen_3</a> (<a class="el" href="_menu___temp___luz_8c.html#a545d0595a9cb68c59ccf7fbcb4c4d660">screen_3_line_1</a>, <a class="el" href="_menu___temp___luz_8c.html#a65f28a7e41f260499e5437b6c06e0063">screen_3_line_2</a>)</td></tr>
+<tr class="separator:a8d5138f50d727836630860b0f785d2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86058f9382951813129053a9156f09a8"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a86058f9382951813129053a9156f09a8">screen_4_line_1</a> (0, 0, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[3])</td></tr>
+<tr class="separator:a86058f9382951813129053a9156f09a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77683be82557504a33f5593d3b92f360"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a77683be82557504a33f5593d3b92f360">screen_4_line_2</a> (0, 1, <a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>[4])</td></tr>
+<tr class="separator:a77683be82557504a33f5593d3b92f360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab416e620f5d8454b1b1aa3f447101be8"><td class="memItemLeft" align="right" valign="top">LiquidScreen&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#ab416e620f5d8454b1b1aa3f447101be8">screen_4</a> (<a class="el" href="_menu___temp___luz_8c.html#a86058f9382951813129053a9156f09a8">screen_4_line_1</a>, <a class="el" href="_menu___temp___luz_8c.html#a77683be82557504a33f5593d3b92f360">screen_4_line_2</a>)</td></tr>
+<tr class="separator:ab416e620f5d8454b1b1aa3f447101be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad942679a4d17564b01cb1059b32eccad"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#ad942679a4d17564b01cb1059b32eccad">screen_5_line_1</a> (0, 0, &quot;&quot;)</td></tr>
+<tr class="separator:ad942679a4d17564b01cb1059b32eccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a22828726efe4abb8499db190139f45"><td class="memItemLeft" align="right" valign="top">LiquidLine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a0a22828726efe4abb8499db190139f45">screen_5_line_2</a> (0, 1, &quot;&quot;)</td></tr>
+<tr class="separator:a0a22828726efe4abb8499db190139f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e8657fbbb6ca799981602178fb57777"><td class="memItemLeft" align="right" valign="top">LiquidScreen&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a6e8657fbbb6ca799981602178fb57777">screen_5</a> (<a class="el" href="_menu___temp___luz_8c.html#ad942679a4d17564b01cb1059b32eccad">screen_5_line_1</a>, <a class="el" href="_menu___temp___luz_8c.html#a0a22828726efe4abb8499db190139f45">screen_5_line_2</a>)</td></tr>
+<tr class="separator:a6e8657fbbb6ca799981602178fb57777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aede48f50b93a6eac38744002ece864cc"><td class="memItemLeft" align="right" valign="top">LiquidMenu&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aede48f50b93a6eac38744002ece864cc">menu</a> (<a class="el" href="_menu___temp___luz_8c.html#ae084e1bc8ccb35ea289ba0ca4972ea6d">lcd</a>, <a class="el" href="_menu___temp___luz_8c.html#a1c361611d8e3e9da9bd451f74301d62e">screen_1</a>, <a class="el" href="_menu___temp___luz_8c.html#a52b6a3c67d0371c73e63bc7049c89a8d">screen_2</a>, <a class="el" href="_menu___temp___luz_8c.html#a8d5138f50d727836630860b0f785d2d5">screen_3</a>, <a class="el" href="_menu___temp___luz_8c.html#ab416e620f5d8454b1b1aa3f447101be8">screen_4</a>)</td></tr>
+<tr class="separator:aede48f50b93a6eac38744002ece864cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc18d4dd0532cbee1775d13e1833a261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#abc18d4dd0532cbee1775d13e1833a261">editar_valor</a> (String titulo, int *varimp)</td></tr>
+<tr class="memdesc:abc18d4dd0532cbee1775d13e1833a261"><td class="mdescLeft">&#160;</td><td class="mdescRight">editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en variable de dicha opcion del menu y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto  <a href="_menu___temp___luz_8c.html#abc18d4dd0532cbee1775d13e1833a261">Más...</a><br /></td></tr>
+<tr class="separator:abc18d4dd0532cbee1775d13e1833a261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a829655a147df70dd4cc94eae40a2204e"><td class="memItemLeft" align="right" valign="top">const byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a> = 4</td></tr>
+<tr class="separator:a829655a147df70dd4cc94eae40a2204e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd90f1160eaa105bc910d4d7c46b815"><td class="memItemLeft" align="right" valign="top">const byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a> = 4</td></tr>
+<tr class="separator:aefd90f1160eaa105bc910d4d7c46b815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a856e873a1d14012d57ddb813c4a1e40a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a856e873a1d14012d57ddb813c4a1e40a">keys</a> [<a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a>][<a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>]</td></tr>
+<tr class="separator:a856e873a1d14012d57ddb813c4a1e40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6753e0ae098b31e2f84d4024e361cf"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a6d6753e0ae098b31e2f84d4024e361cf">rowPins</a> [<a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a>] = {9, 8, 7, 6}</td></tr>
+<tr class="separator:a6d6753e0ae098b31e2f84d4024e361cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9fece7b062124080e4b2976f9a8b675"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aa9fece7b062124080e4b2976f9a8b675">colPins</a> [<a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>] = {5, 4, 3, 2}</td></tr>
+<tr class="separator:aa9fece7b062124080e4b2976f9a8b675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6c3cc7e8c762ab0ca1fa2296d7bbfe"><td class="memItemLeft" align="right" valign="top">Keypad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a0e6c3cc7e8c762ab0ca1fa2296d7bbfe">keypad</a> = Keypad(makeKeymap(<a class="el" href="_menu___temp___luz_8c.html#a856e873a1d14012d57ddb813c4a1e40a">keys</a>), <a class="el" href="_menu___temp___luz_8c.html#a6d6753e0ae098b31e2f84d4024e361cf">rowPins</a>, <a class="el" href="_menu___temp___luz_8c.html#aa9fece7b062124080e4b2976f9a8b675">colPins</a>, <a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a>, <a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>)</td></tr>
+<tr class="separator:a0e6c3cc7e8c762ab0ca1fa2296d7bbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35857fae913c93193ba149fa1c0d6065"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a35857fae913c93193ba149fa1c0d6065">umbrTempHigh</a> = <a class="el" href="_menu___temp___luz_8c.html#acf1b110324fd8383fe7404e7932189b9">DEFAULT_TEMPHIGH</a></td></tr>
+<tr class="separator:a35857fae913c93193ba149fa1c0d6065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2689abbfe02c733a569aed61ba61bc84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a2689abbfe02c733a569aed61ba61bc84">umbrTempLow</a> = <a class="el" href="_menu___temp___luz_8c.html#acbe7a9e726ecec741b2e57e96d1a9aa0">DEFAULT_TEMPLOW</a></td></tr>
+<tr class="separator:a2689abbfe02c733a569aed61ba61bc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe3727e773e4c7abbeb686708ab07ebb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#abe3727e773e4c7abbeb686708ab07ebb">umbrLuzHigh</a> = <a class="el" href="_menu___temp___luz_8c.html#a31617972a802e7a13f402be9db555bc3">DEFAULT_LUZHIGH</a></td></tr>
+<tr class="separator:abe3727e773e4c7abbeb686708ab07ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f01fdca339d1aef59ef717c7efe17e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#a2f01fdca339d1aef59ef717c7efe17e0">umbrLuzLow</a> = <a class="el" href="_menu___temp___luz_8c.html#a74e6b84e2cd64d473169ca5f8e013370">DEFAULT_LUZLOW</a></td></tr>
+<tr class="separator:a2f01fdca339d1aef59ef717c7efe17e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0bdbbc39b679083b0bcc1de4c5afa43"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a> [5][16] = { &quot;1.UmbTempHigh&quot;, &quot;2.UmbTempLow&quot;, &quot;3.UmbLuzHigh&quot;, &quot;4.UmbLuzLow&quot;, &quot;5.Reset&quot; }</td></tr>
+<tr class="memdesc:ad0bdbbc39b679083b0bcc1de4c5afa43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Screens textos que se van a mostrar en cada pantalla del menu.  <a href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">Más...</a><br /></td></tr>
+<tr class="separator:ad0bdbbc39b679083b0bcc1de4c5afa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7dcd1f1e68fd4cfe5acf362800bff31"><td class="memItemLeft" align="right" valign="top">LiquidScreen *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menu___temp___luz_8c.html#aa7dcd1f1e68fd4cfe5acf362800bff31">lastScreen</a> = nullptr</td></tr>
+<tr class="separator:aa7dcd1f1e68fd4cfe5acf362800bff31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los 'defines'</h2>
+<a id="a28b1f6536669a9f56fa8b581e6937328" name="a28b1f6536669a9f56fa8b581e6937328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b1f6536669a9f56fa8b581e6937328">&#9670;&#160;</a></span>BUZZER_PASIVO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUZZER_PASIVO&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>configuracion de los pines de los leds, el buzzer pasivo, el LCD I2C y el teclado matricial </p>
+
+</div>
+</div>
+<a id="a31617972a802e7a13f402be9db555bc3" name="a31617972a802e7a13f402be9db555bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31617972a802e7a13f402be9db555bc3">&#9670;&#160;</a></span>DEFAULT_LUZHIGH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_LUZHIGH&#160;&#160;&#160;800</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74e6b84e2cd64d473169ca5f8e013370" name="a74e6b84e2cd64d473169ca5f8e013370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e6b84e2cd64d473169ca5f8e013370">&#9670;&#160;</a></span>DEFAULT_LUZLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_LUZLOW&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf1b110324fd8383fe7404e7932189b9" name="acf1b110324fd8383fe7404e7932189b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf1b110324fd8383fe7404e7932189b9">&#9670;&#160;</a></span>DEFAULT_TEMPHIGH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_TEMPHIGH&#160;&#160;&#160;29</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valores por defecto de los umbrales de temperatura y luz, y valores maximos de temperatura y luz Valor de simulacion de sensor de temperatura DHT11. </p>
+
+</div>
+</div>
+<a id="acbe7a9e726ecec741b2e57e96d1a9aa0" name="acbe7a9e726ecec741b2e57e96d1a9aa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe7a9e726ecec741b2e57e96d1a9aa0">&#9670;&#160;</a></span>DEFAULT_TEMPLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_TEMPLOW&#160;&#160;&#160;26</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2e40566d27689f8581d7b0f12271d45" name="ae2e40566d27689f8581d7b0f12271d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e40566d27689f8581d7b0f12271d45">&#9670;&#160;</a></span>LED_BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_BLUE&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca338dbd19d7940923334629f6e5f3b7" name="aca338dbd19d7940923334629f6e5f3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca338dbd19d7940923334629f6e5f3b7">&#9670;&#160;</a></span>LED_GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_GREEN&#160;&#160;&#160;11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31e20330f8ce94e0dd10b005a15c5898" name="a31e20330f8ce94e0dd10b005a15c5898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31e20330f8ce94e0dd10b005a15c5898">&#9670;&#160;</a></span>LED_RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_RED&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4568063ebff6ebfe1a8fa27b6e097d8b" name="a4568063ebff6ebfe1a8fa27b6e097d8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4568063ebff6ebfe1a8fa27b6e097d8b">&#9670;&#160;</a></span>MAX_LIGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LIGTH&#160;&#160;&#160;1023</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed8ea54a2630aaf2ae3f2bd5fa886959" name="aed8ea54a2630aaf2ae3f2bd5fa886959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8ea54a2630aaf2ae3f2bd5fa886959">&#9670;&#160;</a></span>MAX_TEMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TEMP&#160;&#160;&#160;125</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a4c411514c5cbfa898a52b3d2ae68fd" name="a1a4c411514c5cbfa898a52b3d2ae68fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4c411514c5cbfa898a52b3d2ae68fd">&#9670;&#160;</a></span>TEST_TEMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEST_TEMP&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="aa641cab3aeccf0a4ac08cd937b5af13d" name="aa641cab3aeccf0a4ac08cd937b5af13d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa641cab3aeccf0a4ac08cd937b5af13d">&#9670;&#160;</a></span>color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void color </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>red</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>green</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>blue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>color Genera el color que se le pase por parametro </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">red</td><td></td></tr>
+    <tr><td class="paramname">green</td><td></td></tr>
+    <tr><td class="paramname">blue</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03334966afdf98975996f65b35421f5d" name="a03334966afdf98975996f65b35421f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03334966afdf98975996f65b35421f5d">&#9670;&#160;</a></span>editar_valor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void editar_valor </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>titulo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte *&#160;</td>
+          <td class="paramname"><em>varimp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc18d4dd0532cbee1775d13e1833a261" name="abc18d4dd0532cbee1775d13e1833a261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc18d4dd0532cbee1775d13e1833a261">&#9670;&#160;</a></span>editar_valor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void editar_valor </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>titulo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>varimp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en variable de dicha opcion del menu y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titulo</td><td>Titulo de la opcion del menu </td></tr>
+    <tr><td class="paramname">varimp</td><td>Variable que esta guardada y se va a editar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae084e1bc8ccb35ea289ba0ca4972ea6d" name="ae084e1bc8ccb35ea289ba0ca4972ea6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae084e1bc8ccb35ea289ba0ca4972ea6d">&#9670;&#160;</a></span>lcd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidCrystal_I2C lcd </td>
+          <td>(</td>
+          <td class="paramtype">0x27&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">16&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">2&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aede48f50b93a6eac38744002ece864cc" name="aede48f50b93a6eac38744002ece864cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aede48f50b93a6eac38744002ece864cc">&#9670;&#160;</a></span>menu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidMenu menu </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ae084e1bc8ccb35ea289ba0ca4972ea6d">lcd</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a1c361611d8e3e9da9bd451f74301d62e">screen_1</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a52b6a3c67d0371c73e63bc7049c89a8d">screen_2</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a8d5138f50d727836630860b0f785d2d5">screen_3</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ab416e620f5d8454b1b1aa3f447101be8">screen_4</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d15eff9d4f7d6c34270303a63c8b72e" name="a6d15eff9d4f7d6c34270303a63c8b72e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d15eff9d4f7d6c34270303a63c8b72e">&#9670;&#160;</a></span>readKeypad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readKeypad </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>readKeypad Lee los numeros que se ingresen por el keypad lo transforma a int y lo retorna </p>
+<dl class="section return"><dt>Devuelve</dt><dd>int numero ingresado por el keypad </dd></dl>
+
+</div>
+</div>
+<a id="a1c361611d8e3e9da9bd451f74301d62e" name="a1c361611d8e3e9da9bd451f74301d62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c361611d8e3e9da9bd451f74301d62e">&#9670;&#160;</a></span>screen_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidScreen screen_1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a97af450f09530d7b36896a21e54716fa">screen_1_line_1</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a7bac7a9466919d326250ae0193a7a329">screen_1_line_2</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97af450f09530d7b36896a21e54716fa" name="a97af450f09530d7b36896a21e54716fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97af450f09530d7b36896a21e54716fa">&#9670;&#160;</a></span>screen_1_line_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_1_line_1 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[0]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bac7a9466919d326250ae0193a7a329" name="a7bac7a9466919d326250ae0193a7a329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bac7a9466919d326250ae0193a7a329">&#9670;&#160;</a></span>screen_1_line_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_1_line_2 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[1]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52b6a3c67d0371c73e63bc7049c89a8d" name="a52b6a3c67d0371c73e63bc7049c89a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b6a3c67d0371c73e63bc7049c89a8d">&#9670;&#160;</a></span>screen_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidScreen screen_2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a22109d3a504a7b73863e3d3bf27d6836">screen_2_line_1</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a4f1e62bf9400f4c0ddea7c0a6068093d">screen_2_line_2</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22109d3a504a7b73863e3d3bf27d6836" name="a22109d3a504a7b73863e3d3bf27d6836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22109d3a504a7b73863e3d3bf27d6836">&#9670;&#160;</a></span>screen_2_line_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_2_line_1 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[1]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f1e62bf9400f4c0ddea7c0a6068093d" name="a4f1e62bf9400f4c0ddea7c0a6068093d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f1e62bf9400f4c0ddea7c0a6068093d">&#9670;&#160;</a></span>screen_2_line_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_2_line_2 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[2]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d5138f50d727836630860b0f785d2d5" name="a8d5138f50d727836630860b0f785d2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d5138f50d727836630860b0f785d2d5">&#9670;&#160;</a></span>screen_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidScreen screen_3 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a545d0595a9cb68c59ccf7fbcb4c4d660">screen_3_line_1</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a65f28a7e41f260499e5437b6c06e0063">screen_3_line_2</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a545d0595a9cb68c59ccf7fbcb4c4d660" name="a545d0595a9cb68c59ccf7fbcb4c4d660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545d0595a9cb68c59ccf7fbcb4c4d660">&#9670;&#160;</a></span>screen_3_line_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_3_line_1 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[2]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65f28a7e41f260499e5437b6c06e0063" name="a65f28a7e41f260499e5437b6c06e0063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f28a7e41f260499e5437b6c06e0063">&#9670;&#160;</a></span>screen_3_line_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_3_line_2 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[3]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab416e620f5d8454b1b1aa3f447101be8" name="ab416e620f5d8454b1b1aa3f447101be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab416e620f5d8454b1b1aa3f447101be8">&#9670;&#160;</a></span>screen_4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidScreen screen_4 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a86058f9382951813129053a9156f09a8">screen_4_line_1</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a77683be82557504a33f5593d3b92f360">screen_4_line_2</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86058f9382951813129053a9156f09a8" name="a86058f9382951813129053a9156f09a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86058f9382951813129053a9156f09a8">&#9670;&#160;</a></span>screen_4_line_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_4_line_1 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[3]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77683be82557504a33f5593d3b92f360" name="a77683be82557504a33f5593d3b92f360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77683be82557504a33f5593d3b92f360">&#9670;&#160;</a></span>screen_4_line_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_4_line_2 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad0bdbbc39b679083b0bcc1de4c5afa43">messages</a>&#160;</td>
+          <td class="paramname">[4]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e8657fbbb6ca799981602178fb57777" name="a6e8657fbbb6ca799981602178fb57777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e8657fbbb6ca799981602178fb57777">&#9670;&#160;</a></span>screen_5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidScreen screen_5 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#ad942679a4d17564b01cb1059b32eccad">screen_5_line_1</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_menu___temp___luz_8c.html#a0a22828726efe4abb8499db190139f45">screen_5_line_2</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad942679a4d17564b01cb1059b32eccad" name="ad942679a4d17564b01cb1059b32eccad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad942679a4d17564b01cb1059b32eccad">&#9670;&#160;</a></span>screen_5_line_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_5_line_1 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;&quot;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a22828726efe4abb8499db190139f45" name="a0a22828726efe4abb8499db190139f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a22828726efe4abb8499db190139f45">&#9670;&#160;</a></span>screen_5_line_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidLine screen_5_line_2 </td>
+          <td>(</td>
+          <td class="paramtype">0&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;&quot;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="aa9fece7b062124080e4b2976f9a8b675" name="aa9fece7b062124080e4b2976f9a8b675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9fece7b062124080e4b2976f9a8b675">&#9670;&#160;</a></span>colPins</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte colPins[<a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>] = {5, 4, 3, 2}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefd90f1160eaa105bc910d4d7c46b815" name="aefd90f1160eaa105bc910d4d7c46b815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd90f1160eaa105bc910d4d7c46b815">&#9670;&#160;</a></span>COLS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const byte COLS = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e6c3cc7e8c762ab0ca1fa2296d7bbfe" name="a0e6c3cc7e8c762ab0ca1fa2296d7bbfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e6c3cc7e8c762ab0ca1fa2296d7bbfe">&#9670;&#160;</a></span>keypad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Keypad keypad = Keypad(makeKeymap(<a class="el" href="_menu___temp___luz_8c.html#a856e873a1d14012d57ddb813c4a1e40a">keys</a>), <a class="el" href="_menu___temp___luz_8c.html#a6d6753e0ae098b31e2f84d4024e361cf">rowPins</a>, <a class="el" href="_menu___temp___luz_8c.html#aa9fece7b062124080e4b2976f9a8b675">colPins</a>, <a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a>, <a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a856e873a1d14012d57ddb813c4a1e40a" name="a856e873a1d14012d57ddb813c4a1e40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a856e873a1d14012d57ddb813c4a1e40a">&#9670;&#160;</a></span>keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char keys[<a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a>][<a class="el" href="_menu___temp___luz_8c.html#aefd90f1160eaa105bc910d4d7c46b815">COLS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">      {<span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;A&#39;</span>},</div>
+<div class="line">      {<span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;B&#39;</span>},</div>
+<div class="line">      {<span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;C&#39;</span>},</div>
+<div class="line">      {<span class="charliteral">&#39;*&#39;</span>, <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;#&#39;</span>, <span class="charliteral">&#39;D&#39;</span>}}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa7dcd1f1e68fd4cfe5acf362800bff31" name="aa7dcd1f1e68fd4cfe5acf362800bff31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7dcd1f1e68fd4cfe5acf362800bff31">&#9670;&#160;</a></span>lastScreen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LiquidScreen* lastScreen = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0bdbbc39b679083b0bcc1de4c5afa43" name="ad0bdbbc39b679083b0bcc1de4c5afa43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0bdbbc39b679083b0bcc1de4c5afa43">&#9670;&#160;</a></span>messages</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char messages[5][16] = { &quot;1.UmbTempHigh&quot;, &quot;2.UmbTempLow&quot;, &quot;3.UmbLuzHigh&quot;, &quot;4.UmbLuzLow&quot;, &quot;5.Reset&quot; }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Screens textos que se van a mostrar en cada pantalla del menu. </p>
+
+</div>
+</div>
+<a id="a6d6753e0ae098b31e2f84d4024e361cf" name="a6d6753e0ae098b31e2f84d4024e361cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d6753e0ae098b31e2f84d4024e361cf">&#9670;&#160;</a></span>rowPins</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte rowPins[<a class="el" href="_menu___temp___luz_8c.html#a829655a147df70dd4cc94eae40a2204e">ROWS</a>] = {9, 8, 7, 6}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a829655a147df70dd4cc94eae40a2204e" name="a829655a147df70dd4cc94eae40a2204e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a829655a147df70dd4cc94eae40a2204e">&#9670;&#160;</a></span>ROWS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const byte ROWS = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe3727e773e4c7abbeb686708ab07ebb" name="abe3727e773e4c7abbeb686708ab07ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3727e773e4c7abbeb686708ab07ebb">&#9670;&#160;</a></span>umbrLuzHigh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int umbrLuzHigh = <a class="el" href="_menu___temp___luz_8c.html#a31617972a802e7a13f402be9db555bc3">DEFAULT_LUZHIGH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f01fdca339d1aef59ef717c7efe17e0" name="a2f01fdca339d1aef59ef717c7efe17e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f01fdca339d1aef59ef717c7efe17e0">&#9670;&#160;</a></span>umbrLuzLow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int umbrLuzLow = <a class="el" href="_menu___temp___luz_8c.html#a74e6b84e2cd64d473169ca5f8e013370">DEFAULT_LUZLOW</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35857fae913c93193ba149fa1c0d6065" name="a35857fae913c93193ba149fa1c0d6065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35857fae913c93193ba149fa1c0d6065">&#9670;&#160;</a></span>umbrTempHigh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int umbrTempHigh = <a class="el" href="_menu___temp___luz_8c.html#acf1b110324fd8383fe7404e7932189b9">DEFAULT_TEMPHIGH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2689abbfe02c733a569aed61ba61bc84" name="a2689abbfe02c733a569aed61ba61bc84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2689abbfe02c733a569aed61ba61bc84">&#9670;&#160;</a></span>umbrTempLow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int umbrTempLow = <a class="el" href="_menu___temp___luz_8c.html#acbe7a9e726ecec741b2e57e96d1a9aa0">DEFAULT_TEMPLOW</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

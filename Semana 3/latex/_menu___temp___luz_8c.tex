@@ -1,0 +1,444 @@
+\hypertarget{_menu___temp___luz_8c}{}\doxysection{Referencia del Archivo Menu\+\_\+\+Temp\+\_\+\+Luz.\+c}
+\label{_menu___temp___luz_8c}\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+{\ttfamily \#include $<$Liquid\+Crystal\+\_\+\+I2\+C.\+h$>$}\newline
+{\ttfamily \#include $<$Liquid\+Menu.\+h$>$}\newline
+{\ttfamily \#include $<$Keypad.\+h$>$}\newline
+{\ttfamily \#include $<$Easy\+Buzzer.\+h$>$}\newline
+\doxysubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_a28b1f6536669a9f56fa8b581e6937328}{BUZZER\+\_\+\+PASIVO}}~13
+\begin{DoxyCompactList}\small\item\em configuracion de los pines de los leds, el buzzer pasivo, el LCD I2C y el teclado matricial \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_a31e20330f8ce94e0dd10b005a15c5898}{LED\+\_\+\+RED}}~10
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_aca338dbd19d7940923334629f6e5f3b7}{LED\+\_\+\+GREEN}}~11
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_ae2e40566d27689f8581d7b0f12271d45}{LED\+\_\+\+BLUE}}~12
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_acf1b110324fd8383fe7404e7932189b9}{DEFAULT\+\_\+\+TEMPHIGH}}~29
+\begin{DoxyCompactList}\small\item\em Valores por defecto de los umbrales de temperatura y luz, y valores maximos de temperatura y luz Valor de simulacion de sensor de temperatura DHT11. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_acbe7a9e726ecec741b2e57e96d1a9aa0}{DEFAULT\+\_\+\+TEMPLOW}}~26
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_a31617972a802e7a13f402be9db555bc3}{DEFAULT\+\_\+\+LUZHIGH}}~800
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_a74e6b84e2cd64d473169ca5f8e013370}{DEFAULT\+\_\+\+LUZLOW}}~300
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_a1a4c411514c5cbfa898a52b3d2ae68fd}{TEST\+\_\+\+TEMP}}~20
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_aed8ea54a2630aaf2ae3f2bd5fa886959}{MAX\+\_\+\+TEMP}}~125
+\item 
+\#define \mbox{\hyperlink{_menu___temp___luz_8c_a4568063ebff6ebfe1a8fa27b6e097d8b}{MAX\+\_\+\+LIGTH}}~1023
+\end{DoxyCompactItemize}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+Liquid\+Crystal\+\_\+\+I2C \mbox{\hyperlink{_menu___temp___luz_8c_ae084e1bc8ccb35ea289ba0ca4972ea6d}{lcd}} (0x27, 16, 2)
+\item 
+int \mbox{\hyperlink{_menu___temp___luz_8c_a6d15eff9d4f7d6c34270303a63c8b72e}{read\+Keypad}} ()
+\begin{DoxyCompactList}\small\item\em read\+Keypad Lee los numeros que se ingresen por el keypad lo transforma a int y lo retorna \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_menu___temp___luz_8c_a03334966afdf98975996f65b35421f5d}{editar\+\_\+valor}} (String titulo, byte $\ast$varimp)
+\item 
+void \mbox{\hyperlink{_menu___temp___luz_8c_aa641cab3aeccf0a4ac08cd937b5af13d}{color}} (unsigned char red, unsigned char green, unsigned char blue)
+\begin{DoxyCompactList}\small\item\em color Genera el color que se le pase por parametro \end{DoxyCompactList}\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a97af450f09530d7b36896a21e54716fa}{screen\+\_\+1\+\_\+line\+\_\+1}} (0, 0, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}0\mbox{]})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a7bac7a9466919d326250ae0193a7a329}{screen\+\_\+1\+\_\+line\+\_\+2}} (0, 1, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}1\mbox{]})
+\item 
+Liquid\+Screen \mbox{\hyperlink{_menu___temp___luz_8c_a1c361611d8e3e9da9bd451f74301d62e}{screen\+\_\+1}} (\mbox{\hyperlink{_menu___temp___luz_8c_a97af450f09530d7b36896a21e54716fa}{screen\+\_\+1\+\_\+line\+\_\+1}}, \mbox{\hyperlink{_menu___temp___luz_8c_a7bac7a9466919d326250ae0193a7a329}{screen\+\_\+1\+\_\+line\+\_\+2}})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a22109d3a504a7b73863e3d3bf27d6836}{screen\+\_\+2\+\_\+line\+\_\+1}} (0, 0, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}1\mbox{]})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a4f1e62bf9400f4c0ddea7c0a6068093d}{screen\+\_\+2\+\_\+line\+\_\+2}} (0, 1, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}2\mbox{]})
+\item 
+Liquid\+Screen \mbox{\hyperlink{_menu___temp___luz_8c_a52b6a3c67d0371c73e63bc7049c89a8d}{screen\+\_\+2}} (\mbox{\hyperlink{_menu___temp___luz_8c_a22109d3a504a7b73863e3d3bf27d6836}{screen\+\_\+2\+\_\+line\+\_\+1}}, \mbox{\hyperlink{_menu___temp___luz_8c_a4f1e62bf9400f4c0ddea7c0a6068093d}{screen\+\_\+2\+\_\+line\+\_\+2}})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a545d0595a9cb68c59ccf7fbcb4c4d660}{screen\+\_\+3\+\_\+line\+\_\+1}} (0, 0, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}2\mbox{]})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a65f28a7e41f260499e5437b6c06e0063}{screen\+\_\+3\+\_\+line\+\_\+2}} (0, 1, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}3\mbox{]})
+\item 
+Liquid\+Screen \mbox{\hyperlink{_menu___temp___luz_8c_a8d5138f50d727836630860b0f785d2d5}{screen\+\_\+3}} (\mbox{\hyperlink{_menu___temp___luz_8c_a545d0595a9cb68c59ccf7fbcb4c4d660}{screen\+\_\+3\+\_\+line\+\_\+1}}, \mbox{\hyperlink{_menu___temp___luz_8c_a65f28a7e41f260499e5437b6c06e0063}{screen\+\_\+3\+\_\+line\+\_\+2}})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a86058f9382951813129053a9156f09a8}{screen\+\_\+4\+\_\+line\+\_\+1}} (0, 0, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}3\mbox{]})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a77683be82557504a33f5593d3b92f360}{screen\+\_\+4\+\_\+line\+\_\+2}} (0, 1, \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}\mbox{[}4\mbox{]})
+\item 
+Liquid\+Screen \mbox{\hyperlink{_menu___temp___luz_8c_ab416e620f5d8454b1b1aa3f447101be8}{screen\+\_\+4}} (\mbox{\hyperlink{_menu___temp___luz_8c_a86058f9382951813129053a9156f09a8}{screen\+\_\+4\+\_\+line\+\_\+1}}, \mbox{\hyperlink{_menu___temp___luz_8c_a77683be82557504a33f5593d3b92f360}{screen\+\_\+4\+\_\+line\+\_\+2}})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_ad942679a4d17564b01cb1059b32eccad}{screen\+\_\+5\+\_\+line\+\_\+1}} (0, 0, \char`\"{}\char`\"{})
+\item 
+Liquid\+Line \mbox{\hyperlink{_menu___temp___luz_8c_a0a22828726efe4abb8499db190139f45}{screen\+\_\+5\+\_\+line\+\_\+2}} (0, 1, \char`\"{}\char`\"{})
+\item 
+Liquid\+Screen \mbox{\hyperlink{_menu___temp___luz_8c_a6e8657fbbb6ca799981602178fb57777}{screen\+\_\+5}} (\mbox{\hyperlink{_menu___temp___luz_8c_ad942679a4d17564b01cb1059b32eccad}{screen\+\_\+5\+\_\+line\+\_\+1}}, \mbox{\hyperlink{_menu___temp___luz_8c_a0a22828726efe4abb8499db190139f45}{screen\+\_\+5\+\_\+line\+\_\+2}})
+\item 
+Liquid\+Menu \mbox{\hyperlink{_menu___temp___luz_8c_aede48f50b93a6eac38744002ece864cc}{menu}} (\mbox{\hyperlink{_menu___temp___luz_8c_ae084e1bc8ccb35ea289ba0ca4972ea6d}{lcd}}, \mbox{\hyperlink{_menu___temp___luz_8c_a1c361611d8e3e9da9bd451f74301d62e}{screen\+\_\+1}}, \mbox{\hyperlink{_menu___temp___luz_8c_a52b6a3c67d0371c73e63bc7049c89a8d}{screen\+\_\+2}}, \mbox{\hyperlink{_menu___temp___luz_8c_a8d5138f50d727836630860b0f785d2d5}{screen\+\_\+3}}, \mbox{\hyperlink{_menu___temp___luz_8c_ab416e620f5d8454b1b1aa3f447101be8}{screen\+\_\+4}})
+\item 
+void \mbox{\hyperlink{_menu___temp___luz_8c_abc18d4dd0532cbee1775d13e1833a261}{editar\+\_\+valor}} (String titulo, int $\ast$varimp)
+\begin{DoxyCompactList}\small\item\em editar\+\_\+valor Genera un submenu segun la opcion y editar el valor que este guardado en variable de dicha opcion del menu y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_menu___temp___luz_8c_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{_menu___temp___luz_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const byte \mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}} = 4
+\item 
+const byte \mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}} = 4
+\item 
+char \mbox{\hyperlink{_menu___temp___luz_8c_a856e873a1d14012d57ddb813c4a1e40a}{keys}} \mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}}\mbox{]}
+\item 
+byte \mbox{\hyperlink{_menu___temp___luz_8c_a6d6753e0ae098b31e2f84d4024e361cf}{row\+Pins}} \mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}}\mbox{]} = \{9, 8, 7, 6\}
+\item 
+byte \mbox{\hyperlink{_menu___temp___luz_8c_aa9fece7b062124080e4b2976f9a8b675}{col\+Pins}} \mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}}\mbox{]} = \{5, 4, 3, 2\}
+\item 
+Keypad \mbox{\hyperlink{_menu___temp___luz_8c_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}{keypad}} = Keypad(make\+Keymap(\mbox{\hyperlink{_menu___temp___luz_8c_a856e873a1d14012d57ddb813c4a1e40a}{keys}}), \mbox{\hyperlink{_menu___temp___luz_8c_a6d6753e0ae098b31e2f84d4024e361cf}{row\+Pins}}, \mbox{\hyperlink{_menu___temp___luz_8c_aa9fece7b062124080e4b2976f9a8b675}{col\+Pins}}, \mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}}, \mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}})
+\item 
+int \mbox{\hyperlink{_menu___temp___luz_8c_a35857fae913c93193ba149fa1c0d6065}{umbr\+Temp\+High}} = \mbox{\hyperlink{_menu___temp___luz_8c_acf1b110324fd8383fe7404e7932189b9}{DEFAULT\+\_\+\+TEMPHIGH}}
+\item 
+int \mbox{\hyperlink{_menu___temp___luz_8c_a2689abbfe02c733a569aed61ba61bc84}{umbr\+Temp\+Low}} = \mbox{\hyperlink{_menu___temp___luz_8c_acbe7a9e726ecec741b2e57e96d1a9aa0}{DEFAULT\+\_\+\+TEMPLOW}}
+\item 
+int \mbox{\hyperlink{_menu___temp___luz_8c_abe3727e773e4c7abbeb686708ab07ebb}{umbr\+Luz\+High}} = \mbox{\hyperlink{_menu___temp___luz_8c_a31617972a802e7a13f402be9db555bc3}{DEFAULT\+\_\+\+LUZHIGH}}
+\item 
+int \mbox{\hyperlink{_menu___temp___luz_8c_a2f01fdca339d1aef59ef717c7efe17e0}{umbr\+Luz\+Low}} = \mbox{\hyperlink{_menu___temp___luz_8c_a74e6b84e2cd64d473169ca5f8e013370}{DEFAULT\+\_\+\+LUZLOW}}
+\item 
+char \mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}} \mbox{[}5\mbox{]}\mbox{[}16\mbox{]} = \{ \char`\"{}1.Umb\+Temp\+High\char`\"{}, \char`\"{}2.Umb\+Temp\+Low\char`\"{}, \char`\"{}3.Umb\+Luz\+High\char`\"{}, \char`\"{}4.Umb\+Luz\+Low\char`\"{}, \char`\"{}5.Reset\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Screens textos que se van a mostrar en cada pantalla del menu. \end{DoxyCompactList}\item 
+Liquid\+Screen $\ast$ \mbox{\hyperlink{_menu___temp___luz_8c_aa7dcd1f1e68fd4cfe5acf362800bff31}{last\+Screen}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de los \textquotesingle{}defines\textquotesingle{}}
+\mbox{\Hypertarget{_menu___temp___luz_8c_a28b1f6536669a9f56fa8b581e6937328}\label{_menu___temp___luz_8c_a28b1f6536669a9f56fa8b581e6937328}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!BUZZER\_PASIVO@{BUZZER\_PASIVO}}
+\index{BUZZER\_PASIVO@{BUZZER\_PASIVO}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{BUZZER\_PASIVO}{BUZZER\_PASIVO}}
+{\footnotesize\ttfamily \#define BUZZER\+\_\+\+PASIVO~13}
+
+
+
+configuracion de los pines de los leds, el buzzer pasivo, el LCD I2C y el teclado matricial 
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a31617972a802e7a13f402be9db555bc3}\label{_menu___temp___luz_8c_a31617972a802e7a13f402be9db555bc3}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!DEFAULT\_LUZHIGH@{DEFAULT\_LUZHIGH}}
+\index{DEFAULT\_LUZHIGH@{DEFAULT\_LUZHIGH}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_LUZHIGH}{DEFAULT\_LUZHIGH}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+LUZHIGH~800}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a74e6b84e2cd64d473169ca5f8e013370}\label{_menu___temp___luz_8c_a74e6b84e2cd64d473169ca5f8e013370}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!DEFAULT\_LUZLOW@{DEFAULT\_LUZLOW}}
+\index{DEFAULT\_LUZLOW@{DEFAULT\_LUZLOW}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_LUZLOW}{DEFAULT\_LUZLOW}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+LUZLOW~300}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_acf1b110324fd8383fe7404e7932189b9}\label{_menu___temp___luz_8c_acf1b110324fd8383fe7404e7932189b9}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!DEFAULT\_TEMPHIGH@{DEFAULT\_TEMPHIGH}}
+\index{DEFAULT\_TEMPHIGH@{DEFAULT\_TEMPHIGH}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_TEMPHIGH}{DEFAULT\_TEMPHIGH}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+TEMPHIGH~29}
+
+
+
+Valores por defecto de los umbrales de temperatura y luz, y valores maximos de temperatura y luz Valor de simulacion de sensor de temperatura DHT11. 
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_acbe7a9e726ecec741b2e57e96d1a9aa0}\label{_menu___temp___luz_8c_acbe7a9e726ecec741b2e57e96d1a9aa0}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!DEFAULT\_TEMPLOW@{DEFAULT\_TEMPLOW}}
+\index{DEFAULT\_TEMPLOW@{DEFAULT\_TEMPLOW}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_TEMPLOW}{DEFAULT\_TEMPLOW}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+TEMPLOW~26}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_ae2e40566d27689f8581d7b0f12271d45}\label{_menu___temp___luz_8c_ae2e40566d27689f8581d7b0f12271d45}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!LED\_BLUE@{LED\_BLUE}}
+\index{LED\_BLUE@{LED\_BLUE}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{LED\_BLUE}{LED\_BLUE}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+BLUE~12}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_aca338dbd19d7940923334629f6e5f3b7}\label{_menu___temp___luz_8c_aca338dbd19d7940923334629f6e5f3b7}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!LED\_GREEN@{LED\_GREEN}}
+\index{LED\_GREEN@{LED\_GREEN}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{LED\_GREEN}{LED\_GREEN}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+GREEN~11}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a31e20330f8ce94e0dd10b005a15c5898}\label{_menu___temp___luz_8c_a31e20330f8ce94e0dd10b005a15c5898}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!LED\_RED@{LED\_RED}}
+\index{LED\_RED@{LED\_RED}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{LED\_RED}{LED\_RED}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+RED~10}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a4568063ebff6ebfe1a8fa27b6e097d8b}\label{_menu___temp___luz_8c_a4568063ebff6ebfe1a8fa27b6e097d8b}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!MAX\_LIGTH@{MAX\_LIGTH}}
+\index{MAX\_LIGTH@{MAX\_LIGTH}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_LIGTH}{MAX\_LIGTH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+LIGTH~1023}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_aed8ea54a2630aaf2ae3f2bd5fa886959}\label{_menu___temp___luz_8c_aed8ea54a2630aaf2ae3f2bd5fa886959}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!MAX\_TEMP@{MAX\_TEMP}}
+\index{MAX\_TEMP@{MAX\_TEMP}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_TEMP}{MAX\_TEMP}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+TEMP~125}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a1a4c411514c5cbfa898a52b3d2ae68fd}\label{_menu___temp___luz_8c_a1a4c411514c5cbfa898a52b3d2ae68fd}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!TEST\_TEMP@{TEST\_TEMP}}
+\index{TEST\_TEMP@{TEST\_TEMP}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{TEST\_TEMP}{TEST\_TEMP}}
+{\footnotesize\ttfamily \#define TEST\+\_\+\+TEMP~20}
+
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{_menu___temp___luz_8c_aa641cab3aeccf0a4ac08cd937b5af13d}\label{_menu___temp___luz_8c_aa641cab3aeccf0a4ac08cd937b5af13d}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!color@{color}}
+\index{color@{color}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}}
+{\footnotesize\ttfamily void color (\begin{DoxyParamCaption}\item[{unsigned char}]{red,  }\item[{unsigned char}]{green,  }\item[{unsigned char}]{blue }\end{DoxyParamCaption})}
+
+
+
+color Genera el color que se le pase por parametro 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em red} & \\
+\hline
+{\em green} & \\
+\hline
+{\em blue} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_menu___temp___luz_8c_a03334966afdf98975996f65b35421f5d}\label{_menu___temp___luz_8c_a03334966afdf98975996f65b35421f5d}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!editar\_valor@{editar\_valor}}
+\index{editar\_valor@{editar\_valor}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{editar\_valor()}{editar\_valor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void editar\+\_\+valor (\begin{DoxyParamCaption}\item[{String}]{titulo,  }\item[{byte $\ast$}]{varimp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_abc18d4dd0532cbee1775d13e1833a261}\label{_menu___temp___luz_8c_abc18d4dd0532cbee1775d13e1833a261}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!editar\_valor@{editar\_valor}}
+\index{editar\_valor@{editar\_valor}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{editar\_valor()}{editar\_valor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void editar\+\_\+valor (\begin{DoxyParamCaption}\item[{String}]{titulo,  }\item[{int $\ast$}]{varimp }\end{DoxyParamCaption})}
+
+
+
+editar\+\_\+valor Genera un submenu segun la opcion y editar el valor que este guardado en variable de dicha opcion del menu y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em titulo} & Titulo de la opcion del menu \\
+\hline
+{\em varimp} & Variable que esta guardada y se va a editar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_menu___temp___luz_8c_ae084e1bc8ccb35ea289ba0ca4972ea6d}\label{_menu___temp___luz_8c_ae084e1bc8ccb35ea289ba0ca4972ea6d}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!lcd@{lcd}}
+\index{lcd@{lcd}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{lcd()}{lcd()}}
+{\footnotesize\ttfamily Liquid\+Crystal\+\_\+\+I2C lcd (\begin{DoxyParamCaption}\item[{0x27}]{,  }\item[{16}]{,  }\item[{2}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_afe461d27b9c48d5921c00d521181f12f}\label{_menu___temp___luz_8c_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!loop@{loop}}
+\index{loop@{loop}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_aede48f50b93a6eac38744002ece864cc}\label{_menu___temp___luz_8c_aede48f50b93a6eac38744002ece864cc}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!menu@{menu}}
+\index{menu@{menu}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily Liquid\+Menu menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ae084e1bc8ccb35ea289ba0ca4972ea6d}{lcd}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a1c361611d8e3e9da9bd451f74301d62e}{screen\+\_\+1}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a52b6a3c67d0371c73e63bc7049c89a8d}{screen\+\_\+2}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a8d5138f50d727836630860b0f785d2d5}{screen\+\_\+3}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ab416e620f5d8454b1b1aa3f447101be8}{screen\+\_\+4}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a6d15eff9d4f7d6c34270303a63c8b72e}\label{_menu___temp___luz_8c_a6d15eff9d4f7d6c34270303a63c8b72e}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!readKeypad@{readKeypad}}
+\index{readKeypad@{readKeypad}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{readKeypad()}{readKeypad()}}
+{\footnotesize\ttfamily int read\+Keypad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+read\+Keypad Lee los numeros que se ingresen por el keypad lo transforma a int y lo retorna 
+
+\begin{DoxyReturn}{Devuelve}
+int numero ingresado por el keypad 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_menu___temp___luz_8c_a1c361611d8e3e9da9bd451f74301d62e}\label{_menu___temp___luz_8c_a1c361611d8e3e9da9bd451f74301d62e}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_1@{screen\_1}}
+\index{screen\_1@{screen\_1}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_1()}{screen\_1()}}
+{\footnotesize\ttfamily Liquid\+Screen screen\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a97af450f09530d7b36896a21e54716fa}{screen\+\_\+1\+\_\+line\+\_\+1}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a7bac7a9466919d326250ae0193a7a329}{screen\+\_\+1\+\_\+line\+\_\+2}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a97af450f09530d7b36896a21e54716fa}\label{_menu___temp___luz_8c_a97af450f09530d7b36896a21e54716fa}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_1\_line\_1@{screen\_1\_line\_1}}
+\index{screen\_1\_line\_1@{screen\_1\_line\_1}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_1\_line\_1()}{screen\_1\_line\_1()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+1\+\_\+line\+\_\+1 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}0\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a7bac7a9466919d326250ae0193a7a329}\label{_menu___temp___luz_8c_a7bac7a9466919d326250ae0193a7a329}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_1\_line\_2@{screen\_1\_line\_2}}
+\index{screen\_1\_line\_2@{screen\_1\_line\_2}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_1\_line\_2()}{screen\_1\_line\_2()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+1\+\_\+line\+\_\+2 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{1}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}1\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a52b6a3c67d0371c73e63bc7049c89a8d}\label{_menu___temp___luz_8c_a52b6a3c67d0371c73e63bc7049c89a8d}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_2@{screen\_2}}
+\index{screen\_2@{screen\_2}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_2()}{screen\_2()}}
+{\footnotesize\ttfamily Liquid\+Screen screen\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a22109d3a504a7b73863e3d3bf27d6836}{screen\+\_\+2\+\_\+line\+\_\+1}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a4f1e62bf9400f4c0ddea7c0a6068093d}{screen\+\_\+2\+\_\+line\+\_\+2}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a22109d3a504a7b73863e3d3bf27d6836}\label{_menu___temp___luz_8c_a22109d3a504a7b73863e3d3bf27d6836}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_2\_line\_1@{screen\_2\_line\_1}}
+\index{screen\_2\_line\_1@{screen\_2\_line\_1}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_2\_line\_1()}{screen\_2\_line\_1()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+2\+\_\+line\+\_\+1 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}1\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a4f1e62bf9400f4c0ddea7c0a6068093d}\label{_menu___temp___luz_8c_a4f1e62bf9400f4c0ddea7c0a6068093d}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_2\_line\_2@{screen\_2\_line\_2}}
+\index{screen\_2\_line\_2@{screen\_2\_line\_2}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_2\_line\_2()}{screen\_2\_line\_2()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+2\+\_\+line\+\_\+2 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{1}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a8d5138f50d727836630860b0f785d2d5}\label{_menu___temp___luz_8c_a8d5138f50d727836630860b0f785d2d5}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_3@{screen\_3}}
+\index{screen\_3@{screen\_3}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_3()}{screen\_3()}}
+{\footnotesize\ttfamily Liquid\+Screen screen\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a545d0595a9cb68c59ccf7fbcb4c4d660}{screen\+\_\+3\+\_\+line\+\_\+1}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a65f28a7e41f260499e5437b6c06e0063}{screen\+\_\+3\+\_\+line\+\_\+2}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a545d0595a9cb68c59ccf7fbcb4c4d660}\label{_menu___temp___luz_8c_a545d0595a9cb68c59ccf7fbcb4c4d660}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_3\_line\_1@{screen\_3\_line\_1}}
+\index{screen\_3\_line\_1@{screen\_3\_line\_1}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_3\_line\_1()}{screen\_3\_line\_1()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+3\+\_\+line\+\_\+1 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a65f28a7e41f260499e5437b6c06e0063}\label{_menu___temp___luz_8c_a65f28a7e41f260499e5437b6c06e0063}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_3\_line\_2@{screen\_3\_line\_2}}
+\index{screen\_3\_line\_2@{screen\_3\_line\_2}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_3\_line\_2()}{screen\_3\_line\_2()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+3\+\_\+line\+\_\+2 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{1}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}3\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_ab416e620f5d8454b1b1aa3f447101be8}\label{_menu___temp___luz_8c_ab416e620f5d8454b1b1aa3f447101be8}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_4@{screen\_4}}
+\index{screen\_4@{screen\_4}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_4()}{screen\_4()}}
+{\footnotesize\ttfamily Liquid\+Screen screen\+\_\+4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a86058f9382951813129053a9156f09a8}{screen\+\_\+4\+\_\+line\+\_\+1}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a77683be82557504a33f5593d3b92f360}{screen\+\_\+4\+\_\+line\+\_\+2}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a86058f9382951813129053a9156f09a8}\label{_menu___temp___luz_8c_a86058f9382951813129053a9156f09a8}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_4\_line\_1@{screen\_4\_line\_1}}
+\index{screen\_4\_line\_1@{screen\_4\_line\_1}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_4\_line\_1()}{screen\_4\_line\_1()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+4\+\_\+line\+\_\+1 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}3\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a77683be82557504a33f5593d3b92f360}\label{_menu___temp___luz_8c_a77683be82557504a33f5593d3b92f360}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_4\_line\_2@{screen\_4\_line\_2}}
+\index{screen\_4\_line\_2@{screen\_4\_line\_2}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_4\_line\_2()}{screen\_4\_line\_2()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+4\+\_\+line\+\_\+2 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{1}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}{messages}}}]{\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a6e8657fbbb6ca799981602178fb57777}\label{_menu___temp___luz_8c_a6e8657fbbb6ca799981602178fb57777}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_5@{screen\_5}}
+\index{screen\_5@{screen\_5}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_5()}{screen\_5()}}
+{\footnotesize\ttfamily Liquid\+Screen screen\+\_\+5 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_menu___temp___luz_8c_ad942679a4d17564b01cb1059b32eccad}{screen\+\_\+5\+\_\+line\+\_\+1}}}]{,  }\item[{\mbox{\hyperlink{_menu___temp___luz_8c_a0a22828726efe4abb8499db190139f45}{screen\+\_\+5\+\_\+line\+\_\+2}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_ad942679a4d17564b01cb1059b32eccad}\label{_menu___temp___luz_8c_ad942679a4d17564b01cb1059b32eccad}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_5\_line\_1@{screen\_5\_line\_1}}
+\index{screen\_5\_line\_1@{screen\_5\_line\_1}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_5\_line\_1()}{screen\_5\_line\_1()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+5\+\_\+line\+\_\+1 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{\char`\"{}\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a0a22828726efe4abb8499db190139f45}\label{_menu___temp___luz_8c_a0a22828726efe4abb8499db190139f45}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!screen\_5\_line\_2@{screen\_5\_line\_2}}
+\index{screen\_5\_line\_2@{screen\_5\_line\_2}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{screen\_5\_line\_2()}{screen\_5\_line\_2()}}
+{\footnotesize\ttfamily Liquid\+Line screen\+\_\+5\+\_\+line\+\_\+2 (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{1}]{,  }\item[{\char`\"{}\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a4fc01d736fe50cf5b977f755b675f11d}\label{_menu___temp___luz_8c_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!setup@{setup}}
+\index{setup@{setup}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{_menu___temp___luz_8c_aa9fece7b062124080e4b2976f9a8b675}\label{_menu___temp___luz_8c_aa9fece7b062124080e4b2976f9a8b675}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!colPins@{colPins}}
+\index{colPins@{colPins}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{colPins}{colPins}}
+{\footnotesize\ttfamily byte col\+Pins\mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}}\mbox{]} = \{5, 4, 3, 2\}}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}\label{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!COLS@{COLS}}
+\index{COLS@{COLS}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{COLS}{COLS}}
+{\footnotesize\ttfamily const byte COLS = 4}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}\label{_menu___temp___luz_8c_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!keypad@{keypad}}
+\index{keypad@{keypad}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{keypad}{keypad}}
+{\footnotesize\ttfamily Keypad keypad = Keypad(make\+Keymap(\mbox{\hyperlink{_menu___temp___luz_8c_a856e873a1d14012d57ddb813c4a1e40a}{keys}}), \mbox{\hyperlink{_menu___temp___luz_8c_a6d6753e0ae098b31e2f84d4024e361cf}{row\+Pins}}, \mbox{\hyperlink{_menu___temp___luz_8c_aa9fece7b062124080e4b2976f9a8b675}{col\+Pins}}, \mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}}, \mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}})}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a856e873a1d14012d57ddb813c4a1e40a}\label{_menu___temp___luz_8c_a856e873a1d14012d57ddb813c4a1e40a}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!keys@{keys}}
+\index{keys@{keys}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily char keys\mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_aefd90f1160eaa105bc910d4d7c46b815}{COLS}}\mbox{]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{      \{\textcolor{charliteral}{'1'}, \textcolor{charliteral}{'2'}, \textcolor{charliteral}{'3'}, \textcolor{charliteral}{'A'}\},}
+\DoxyCodeLine{      \{\textcolor{charliteral}{'4'}, \textcolor{charliteral}{'5'}, \textcolor{charliteral}{'6'}, \textcolor{charliteral}{'B'}\},}
+\DoxyCodeLine{      \{\textcolor{charliteral}{'7'}, \textcolor{charliteral}{'8'}, \textcolor{charliteral}{'9'}, \textcolor{charliteral}{'C'}\},}
+\DoxyCodeLine{      \{\textcolor{charliteral}{'*'}, \textcolor{charliteral}{'0'}, \textcolor{charliteral}{'\#'}, \textcolor{charliteral}{'D'}\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_menu___temp___luz_8c_aa7dcd1f1e68fd4cfe5acf362800bff31}\label{_menu___temp___luz_8c_aa7dcd1f1e68fd4cfe5acf362800bff31}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!lastScreen@{lastScreen}}
+\index{lastScreen@{lastScreen}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{lastScreen}{lastScreen}}
+{\footnotesize\ttfamily Liquid\+Screen$\ast$ last\+Screen = nullptr}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}\label{_menu___temp___luz_8c_ad0bdbbc39b679083b0bcc1de4c5afa43}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!messages@{messages}}
+\index{messages@{messages}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{messages}{messages}}
+{\footnotesize\ttfamily char messages\mbox{[}5\mbox{]}\mbox{[}16\mbox{]} = \{ \char`\"{}1.Umb\+Temp\+High\char`\"{}, \char`\"{}2.Umb\+Temp\+Low\char`\"{}, \char`\"{}3.Umb\+Luz\+High\char`\"{}, \char`\"{}4.Umb\+Luz\+Low\char`\"{}, \char`\"{}5.Reset\char`\"{} \}}
+
+
+
+Screens textos que se van a mostrar en cada pantalla del menu. 
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a6d6753e0ae098b31e2f84d4024e361cf}\label{_menu___temp___luz_8c_a6d6753e0ae098b31e2f84d4024e361cf}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!rowPins@{rowPins}}
+\index{rowPins@{rowPins}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{rowPins}{rowPins}}
+{\footnotesize\ttfamily byte row\+Pins\mbox{[}\mbox{\hyperlink{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}{ROWS}}\mbox{]} = \{9, 8, 7, 6\}}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}\label{_menu___temp___luz_8c_a829655a147df70dd4cc94eae40a2204e}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!ROWS@{ROWS}}
+\index{ROWS@{ROWS}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{ROWS}{ROWS}}
+{\footnotesize\ttfamily const byte ROWS = 4}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_abe3727e773e4c7abbeb686708ab07ebb}\label{_menu___temp___luz_8c_abe3727e773e4c7abbeb686708ab07ebb}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!umbrLuzHigh@{umbrLuzHigh}}
+\index{umbrLuzHigh@{umbrLuzHigh}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{umbrLuzHigh}{umbrLuzHigh}}
+{\footnotesize\ttfamily int umbr\+Luz\+High = \mbox{\hyperlink{_menu___temp___luz_8c_a31617972a802e7a13f402be9db555bc3}{DEFAULT\+\_\+\+LUZHIGH}}}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a2f01fdca339d1aef59ef717c7efe17e0}\label{_menu___temp___luz_8c_a2f01fdca339d1aef59ef717c7efe17e0}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!umbrLuzLow@{umbrLuzLow}}
+\index{umbrLuzLow@{umbrLuzLow}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{umbrLuzLow}{umbrLuzLow}}
+{\footnotesize\ttfamily int umbr\+Luz\+Low = \mbox{\hyperlink{_menu___temp___luz_8c_a74e6b84e2cd64d473169ca5f8e013370}{DEFAULT\+\_\+\+LUZLOW}}}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a35857fae913c93193ba149fa1c0d6065}\label{_menu___temp___luz_8c_a35857fae913c93193ba149fa1c0d6065}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!umbrTempHigh@{umbrTempHigh}}
+\index{umbrTempHigh@{umbrTempHigh}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{umbrTempHigh}{umbrTempHigh}}
+{\footnotesize\ttfamily int umbr\+Temp\+High = \mbox{\hyperlink{_menu___temp___luz_8c_acf1b110324fd8383fe7404e7932189b9}{DEFAULT\+\_\+\+TEMPHIGH}}}
+
+\mbox{\Hypertarget{_menu___temp___luz_8c_a2689abbfe02c733a569aed61ba61bc84}\label{_menu___temp___luz_8c_a2689abbfe02c733a569aed61ba61bc84}} 
+\index{Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}!umbrTempLow@{umbrTempLow}}
+\index{umbrTempLow@{umbrTempLow}!Menu\_Temp\_Luz.c@{Menu\_Temp\_Luz.c}}
+\doxysubsubsection{\texorpdfstring{umbrTempLow}{umbrTempLow}}
+{\footnotesize\ttfamily int umbr\+Temp\+Low = \mbox{\hyperlink{_menu___temp___luz_8c_acbe7a9e726ecec741b2e57e96d1a9aa0}{DEFAULT\+\_\+\+TEMPLOW}}}
+

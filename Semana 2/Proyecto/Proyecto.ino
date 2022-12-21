@@ -1,9 +1,21 @@
+/**
+ * @file Entregable.ino
+ * @author Sebastian Tuquerrez, Brayan Majin, Freider Escobar
+ * @title Tareas Asincronicas y Contrasenia
+ * @brief Uso de tareas asincronicas, para el ingreso de caracteres, compararlo con una contraseña y toma de decisiones segun los intentos
+ *      que lleve.
+ * @version 0.1
+ * @date 2022-12-17
+ */
+
 #include <Keypad.h>
 #include <LiquidCrystal.h>
 #include "DHTStable.h"
 #include "AsyncTaskLib.h"
 
-#define NOTE_B0  31 // notas y frecuencias
+/**
+ * @brief Constantes de las notas musicales que sonaran en el buzzer, insertadas en un array para su facil uso, y las duraciones de cada nota */
+#define NOTE_B0  31 
 #define NOTE_C1  33
 #define NOTE_CS1 35
 #define NOTE_D1  37
@@ -92,47 +104,59 @@
 #define NOTE_CS8 4435
 #define NOTE_D8  4699
 #define NOTE_DS8 4978
-
-int melodia[] = {   // array con las notas de la melodia
+int melodia[] = { 
 NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4, NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_G4, NOTE_F4, NOTE_C4, NOTE_C4, NOTE_C5, NOTE_A4, NOTE_F4, NOTE_E4, NOTE_D4, NOTE_AS4, NOTE_AS4, NOTE_A4, NOTE_F4, NOTE_G4, NOTE_F4};
-
-int duraciones[] = {     // array con la duracion de cada nota
+int duraciones[] = {
 8, 8, 4, 4, 4, 2, 8, 8, 4, 4, 4, 2, 8, 8, 4, 4, 4, 4, 4, 8, 8, 4, 4, 4, 2};
 
+/**
+ * @brief configuracion del keypad, tablero y pines del arduino
+ */
 const byte ROWS = 4;
-//four rows
 const byte COLS = 4;
-//four columns
 char keys[ROWS][COLS] = {
     {'1', '2', '3', 'A'},
     {'4', '5', '6', 'B'},
     {'7', '8', '9', 'C'},
     {'*', '0', '#', 'D'}};
 byte rowPins[ROWS] = {51, 49, 47, 45};
-//connect to the row pinouts of the keypad
 byte colPins[COLS] = {43, 41, 39, 37};
-//connect to the column pinouts of the keypad
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+/**
+ * @brief variables para el ingreso, comparacion e intentos de la contraseña
+ */
 char password[4] = "1234";
 char passwordAux[4] = "****";
 char cantidad[4];
 char key;
 int trys = 1, cont = 0;
-Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+/**
+ * @brief constantes para los pines del LED, Buzzer y la pantalla LCD
+ */
 #define LED_BLUE 8
 #define LED_RED 9
 #define LED_GREEN 10
 #define BUZZER 7
-#define DHT11_PIN 6
 const int rs = 12, en = 11, d4 = 2, d5 = 3, d6 = 4, d7 = 5;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-AsyncTask asyncGetContra(1000, true, [](){  key = keypad.getKey();
+/**
+ * @brief asyncGetContra almacena el caracter ingresado por keypad y muestra en el LCD en forma oculta con "*"
+ */
+AsyncTask asyncGetContra(1000, true, [](){  
                                             lcd.clear();
                                             lcd.setCursor(0, 0);
                                             lcd.print("Ingrese la clave");
-                                            lcd.setCursor(0, 1);
+                                            key = keypad.getKey();
+                                            lcd.setCursor(cont, 1);
                                             lcd.print(passwordAux[cont]); });
 
+/**
+ * @brief ascynCompararContra compara el caracter ingresado en asyncGetContra con la contraseña correcta y hace una toma de decisiones segun
+ * los caracteres ingresados y la igualdad con la contraseña
+ */
 AsyncTask ascynCompararContra(1000, true, [](){ if (key != NO_KEY)
                                                 {
                                                     cantidad[cont] = key;
@@ -165,6 +189,9 @@ AsyncTask ascynCompararContra(1000, true, [](){ if (key != NO_KEY)
                                                     }
                                                 }});
 
+/**
+ * @brief asyncSystemBlock bloquea el sistema si los intentos para ingresar contraseña se han cumplido
+ */
 AsyncTask asyncSystemBlock(1000, true, [](){if (trys == 3)
                                             {
                                                 digitalWrite(LED_RED, HIGH);
