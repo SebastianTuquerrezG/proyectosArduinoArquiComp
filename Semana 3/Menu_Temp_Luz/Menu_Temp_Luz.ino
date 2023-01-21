@@ -9,7 +9,7 @@
  * @copyright Copyright Unicauca (c) 2022 *
  */
 
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 #include <LiquidMenu.h>
 #include <Keypad.h>
 #include <EasyBuzzer.h>
@@ -21,8 +21,8 @@
 #define LED_RED 10
 #define LED_GREEN 12
 #define LED_BLUE 11
-//const int rs = 7, en = 8, d4 = 22, d5 = 24, d6 = 26, d7 = 28;
-LiquidCrystal_I2C lcd(0x27,16,2);
+const int rs = 7, en = 8, d4 = 22, d5 = 24, d6 = 26, d7 = 28;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 #pragma region teclado
   const byte ROWS = 4;
   const byte COLS = 4;
@@ -51,7 +51,7 @@ LiquidCrystal_I2C lcd(0x27,16,2);
 int umbrTempHigh = DEFAULT_TEMPHIGH, umbrTempLow = DEFAULT_TEMPLOW, umbrLuzHigh = DEFAULT_LUZHIGH, umbrLuzLow = DEFAULT_LUZLOW;
 
 int readKeypad();
-void editar_valor(String titulo, byte *varimp);
+void editar_valor(String titulo, byte *aux);
 void color(unsigned char red, unsigned char green, unsigned char blue);
 
 /**
@@ -130,33 +130,33 @@ void color(unsigned char red, unsigned char green, unsigned char blue)  // the c
  * @brief editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en la variable de dicha opcion del menu, dicho valor tambien se guardar en la memoria EEPROM,
  * y podra ser usado en caso de un reset en la placa y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto
  * @param titulo Titulo de la opcion del menu
- * @param varimp Variable que esta guardada y se va a editar
+ * @param aux Variable que esta guardada y se va a editar
  */
-void editar_valor(String titulo, int *varimp) {
-  char pressedKey;
+void editar_valor(String titulo, int *aux) {
+  char key;
   menu.change_screen(&screen_5);
   lcd.setCursor(0, 0);
   lcd.print("                ");
   lcd.setCursor(0, 0);
   lcd.print(titulo);
   lcd.setCursor(0, 1);
-  lcd.print(*varimp);
+  lcd.print(*aux);
   lcd.print(" edit=Press 0");  
-  while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY && pressedKey != '#') {
+  while ((key = keypad.getKey()) != '*' && key == NO_KEY && key != '#') {
   }
-  if (pressedKey == '#') {
+  if (key == '#') {
     menu.change_screen(lastScreen);
     return;
   }
   int number = readKeypad();
-  if (varimp == &umbrTempLow && number < umbrTempHigh || varimp == &umbrTempHigh && number > umbrTempLow && number <= MAX_TEMP) {
-    *varimp = number;
+  if (aux == &umbrTempLow && number < umbrTempHigh || aux == &umbrTempHigh && number > umbrTempLow && number <= MAX_TEMP) {
+    *aux = number;
     menu.change_screen(lastScreen);
     return;
   }
 
-  if (varimp == &umbrLuzLow && number < umbrLuzHigh || varimp == &umbrLuzHigh && number > umbrLuzLow && number <= MAX_LIGTH) {
-    *varimp = number;
+  if (aux == &umbrLuzLow && number < umbrLuzHigh || aux == &umbrLuzHigh && number > umbrLuzLow && number <= MAX_LIGTH) {
+    *aux = number;
     menu.change_screen(lastScreen);
     return;
   }
@@ -164,7 +164,7 @@ void editar_valor(String titulo, int *varimp) {
   lcd.print("                ");
   lcd.setCursor(0, 1);
   lcd.print("Error press \"*\"");
-  while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY) {
+  while ((key = keypad.getKey()) != '*' && key == NO_KEY) {
   }
 
   menu.change_screen(lastScreen);
@@ -172,8 +172,7 @@ void editar_valor(String titulo, int *varimp) {
 
 void setup() {
   Serial.begin(9600);
-  lcd.init();
-  lcd.backlight();
+  lcd.begin(16,2);
   menu.add_screen(screen_5);
   pinMode(BUZZER_PASIVO, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
@@ -213,10 +212,10 @@ void setup() {
     lcd.print("\"*\" to confirm ");
     lcd.setCursor(0, 1);
     lcd.print("\"#\" to cancel  ");
-    char pressedKey;
-    while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY && pressedKey != '#') {
+    char key;
+    while ((key = keypad.getKey()) != '*' && key == NO_KEY && key != '#') {
     }
-    if (pressedKey == '#') {
+    if (key == '#') {
       menu.change_screen(lastScreen);
       return;
     }
