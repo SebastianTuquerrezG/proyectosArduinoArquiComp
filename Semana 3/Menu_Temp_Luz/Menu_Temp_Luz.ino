@@ -9,20 +9,20 @@
  * @copyright Copyright Unicauca (c) 2022 *
  */
 
-#include <LiquidCrystal.h>
+#include <LiquidCrystal_I2C.h>
 #include <LiquidMenu.h>
 #include <Keypad.h>
 #include <EasyBuzzer.h>
 
 /**
- * @brief configuracion de los pines de los leds, el buzzer pasivo, el LCD y el teclado matricial
+ * @brief configuracion de los pines del led RGB, el buzzer pasivo, el LCD y el teclado matricial
  */
 #define BUZZER_PASIVO 13
 #define LED_RED 10
-#define LED_GREEN 11
-#define LED_BLUE 12
-const int rs = 7, en = 8, d4 = 22, d5 = 24, d6 = 26, d7 = 28;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+#define LED_GREEN 12
+#define LED_BLUE 11
+//const int rs = 7, en = 8, d4 = 22, d5 = 24, d6 = 26, d7 = 28;
+LiquidCrystal_I2C lcd(0x27,16,2);
 #pragma region teclado
   const byte ROWS = 4;
   const byte COLS = 4;
@@ -127,8 +127,8 @@ void color(unsigned char red, unsigned char green, unsigned char blue)  // the c
 }
 
 /**
- * @brief editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en variable de dicha opcion del menu y generara un
- *  posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto
+ * @brief editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en la variable de dicha opcion del menu, dicho valor tambien se guardar en la memoria EEPROM,
+ * y podra ser usado en caso de un reset en la placa y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto
  * @param titulo Titulo de la opcion del menu
  * @param varimp Variable que esta guardada y se va a editar
  */
@@ -172,7 +172,8 @@ void editar_valor(String titulo, int *varimp) {
 
 void setup() {
   Serial.begin(9600);
-  lcd.begin(16,2);
+  lcd.init();
+  lcd.backlight();
   menu.add_screen(screen_5);
   pinMode(BUZZER_PASIVO, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
