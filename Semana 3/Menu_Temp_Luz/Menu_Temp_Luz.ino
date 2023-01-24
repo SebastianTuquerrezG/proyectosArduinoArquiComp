@@ -13,15 +13,16 @@
 #include <LiquidMenu.h>
 #include <Keypad.h>
 #include <EasyBuzzer.h>
+#include <EEPROM.h>
 
 /**
- * @brief configuracion de los pines del led RGB, el buzzer pasivo, el LCD y el teclado matricial
+ * @brief configuracion de los pines de los leds, el buzzer pasivo, el LCD y el teclado matricial
  */
 #define BUZZER_PASIVO 13
 #define LED_RED 10
-#define LED_GREEN 12
-#define LED_BLUE 11
-const int rs = 7, en = 8, d4 = 22, d5 = 24, d6 = 26, d7 = 28;
+#define LED_GREEN 11
+#define LED_BLUE 12
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 #pragma region teclado
   const byte ROWS = 4;
@@ -31,24 +32,23 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
       {'4', '5', '6', 'B'},
       {'7', '8', '9', 'C'},
       {'*', '0', '#', 'D'}};
-  byte rowPins[ROWS] = {9, 8, 7, 6};
-  byte colPins[COLS] = {5, 4, 3, 2};
+  byte rowPins[ROWS] = {28, 30, 32, 34};
+  byte colPins[COLS] = {36, 38, 40, 42};
   Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 #pragma endregion
 
 /**
  * @brief Valores por defecto de los umbrales de temperatura y luz, y valores maximos de temperatura y luz
- *    Valor de simulacion de sensor de temperatura DHT11
+ *    Valor de simulacion de sensor de temperatura DHT11 y fotocelda
  */
-#define DEFAULT_TEMPHIGH 29
-#define DEFAULT_TEMPLOW 26
-#define DEFAULT_LUZHIGH 800
-#define DEFAULT_LUZLOW 300
+int umbrTempHigh , umbrTempLow , umbrLuzHigh , umbrLuzLow ;
+#define DEFAULT_TEMPHIGH EEPROM.read(0)
+#define DEFAULT_TEMPLOW EEPROM.read(1)
+#define DEFAULT_LUZHIGH EEPROM.get(2, umbrLuzHigh)
+#define DEFAULT_LUZLOW EEPROM.get(3, umbrLuzLow)
 #define TEST_TEMP 20
 #define MAX_TEMP 125
 #define MAX_LIGTH 1023
-
-int umbrTempHigh = DEFAULT_TEMPHIGH, umbrTempLow = DEFAULT_TEMPLOW, umbrLuzHigh = DEFAULT_LUZHIGH, umbrLuzLow = DEFAULT_LUZLOW;
 
 int readKeypad();
 void editar_valor(String titulo, byte *aux);
@@ -132,8 +132,8 @@ void color(unsigned char red, unsigned char green, unsigned char blue)  // the c
  * @param titulo Titulo de la opcion del menu
  * @param aux Variable que esta guardada y se va a editar
  */
-void editar_valor(String titulo, int *aux) {
-  char key;
+void editar_valor(String titulo, int *aux, int posicion) {
+  char pressedKey;
   menu.change_screen(&screen_5);
   lcd.setCursor(0, 0);
   lcd.print("                ");
@@ -142,21 +142,31 @@ void editar_valor(String titulo, int *aux) {
   lcd.setCursor(0, 1);
   lcd.print(*aux);
   lcd.print(" edit=Press 0");  
-  while ((key = keypad.getKey()) != '*' && key == NO_KEY && key != '#') {
+  while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY && pressedKey != '#') {
   }
-  if (key == '#') {
+  if (pressedKey == '#') {
     menu.change_screen(lastScreen);
     return;
   }
   int number = readKeypad();
   if (aux == &umbrTempLow && number < umbrTempHigh || aux == &umbrTempHigh && number > umbrTempLow && number <= MAX_TEMP) {
     *aux = number;
+    if(posicion == 2 || posicion == 3){
+      EEPROM.put(posicion, *aux);
+    }else{
+      EEPROM.write(posicion, *aux);
+    }
     menu.change_screen(lastScreen);
     return;
   }
 
   if (aux == &umbrLuzLow && number < umbrLuzHigh || aux == &umbrLuzHigh && number > umbrLuzLow && number <= MAX_LIGTH) {
     *aux = number;
+    if(posicion == 2 || posicion == 3){
+      EEPROM.put(posicion, *aux);
+    }else{
+      EEPROM.write(posicion, *aux);
+    }
     menu.change_screen(lastScreen);
     return;
   }
@@ -164,7 +174,7 @@ void editar_valor(String titulo, int *aux) {
   lcd.print("                ");
   lcd.setCursor(0, 1);
   lcd.print("Error press \"*\"");
-  while ((key = keypad.getKey()) != '*' && key == NO_KEY) {
+  while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY) {
   }
 
   menu.change_screen(lastScreen);
@@ -180,29 +190,53 @@ void setup() {
   pinMode(LED_RED, OUTPUT);
   EasyBuzzer.setPin(BUZZER_PASIVO);
 
+  if (DEFAULT_TEMPHIGH == 255){
+    umbrTempHigh = 29;
+  }else{
+    umbrTempHigh = DEFAULT_TEMPHIGH;
+  }
+
+  if (DEFAULT_TEMPLOW == 255){
+    umbrTempLow = 26;
+  }else{
+    umbrTempLow = DEFAULT_TEMPLOW;
+  }
+
+  if (DEFAULT_LUZHIGH == -1){
+    umbrLuzHigh = 800;
+  }else{
+    umbrLuzHigh = DEFAULT_LUZHIGH;
+  }
+
+  if (DEFAULT_LUZLOW == -1){
+    umbrLuzLow = 300;
+  }else{
+    umbrLuzLow = DEFAULT_LUZLOW;
+  }
+
   screen_1_line_1.attach_function(1, []() {
-    editar_valor("UmbTempHigh", &umbrTempHigh);
+    editar_valor("UmbTempHigh", &umbrTempHigh, 0);
   });
   screen_1_line_2.attach_function(1, []() {
-    editar_valor("UmbTempLow", &umbrTempLow);
+    editar_valor("UmbTempLow", &umbrTempLow, 1);
   });
 
   screen_2_line_1.attach_function(1, []() {
-    editar_valor("UmbTempLow", &umbrTempLow);
+    editar_valor("UmbTempLow", &umbrTempLow, 1);
   });
   screen_2_line_2.attach_function(1, []() {
-    editar_valor("UmbLuzHigh", &umbrLuzHigh);
+    editar_valor("UmbLuzHigh", &umbrLuzHigh, 2);
   });
 
   screen_3_line_1.attach_function(1, []() {
-    editar_valor("UmbLuzHigh", &umbrLuzHigh);
+    editar_valor("UmbLuzHigh", &umbrLuzHigh, 2);
   });
   screen_3_line_2.attach_function(1, []() {
-    editar_valor("UmbLuzLow", &umbrLuzLow);
+    editar_valor("UmbLuzLow", &umbrLuzLow, 3);
   });
 
   screen_4_line_1.attach_function(1, []() {
-    editar_valor("UmbLuzLow", &umbrLuzLow);
+    editar_valor("UmbLuzLow", &umbrLuzLow, 3);
   });
   screen_4_line_2.attach_function(1, []() {
     menu.change_screen(&screen_5);
@@ -212,10 +246,10 @@ void setup() {
     lcd.print("\"*\" to confirm ");
     lcd.setCursor(0, 1);
     lcd.print("\"#\" to cancel  ");
-    char key;
-    while ((key = keypad.getKey()) != '*' && key == NO_KEY && key != '#') {
+    char pressedKey;
+    while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY && pressedKey != '#') {
     }
-    if (key == '#') {
+    if (pressedKey == '#') {
       menu.change_screen(lastScreen);
       return;
     }
