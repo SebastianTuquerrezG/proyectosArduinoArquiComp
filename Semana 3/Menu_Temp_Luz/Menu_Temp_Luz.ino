@@ -58,7 +58,7 @@ void color(unsigned char red, unsigned char green, unsigned char blue);
  * @brief Screens textos que se van a mostrar en cada pantalla del menu
  */
 #pragma region Screens
-  char messages[5][16] = { "1.UmbTempHigh", "2.UmbTempLow", "3.UmbLuzHigh", "4.UmbLuzLow", "5.Reset" };
+  char messages[6][16] = { "1.UmbTempHigh", "2.UmbTempLow", "3.UmbLuzHigh", "4.UmbLuzLow", "5.Reset", "6.SalirMonitoreo" };
   LiquidScreen *lastScreen = nullptr;
 
   LiquidLine screen_1_line_1(0, 0, messages[0]);
@@ -80,6 +80,9 @@ void color(unsigned char red, unsigned char green, unsigned char blue);
   LiquidLine screen_5_line_1(0, 0, "");
   LiquidLine screen_5_line_2(0, 1, "");
   LiquidScreen screen_5(screen_5_line_1, screen_5_line_2);
+
+  LiquidLine screen_6_line_1(0,0,messages[4]);
+  LiquidLine screen_6_line_1(0,1,messages[5]);
 
   LiquidMenu menu(lcd, screen_1, screen_2, screen_3, screen_4);
 #pragma endregion Screens
