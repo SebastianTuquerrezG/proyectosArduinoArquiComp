@@ -20,8 +20,8 @@
  */
 #define BUZZER_PASIVO 13
 #define LED_RED 10
-#define LED_GREEN 11
-#define LED_BLUE 12
+#define LED_GREEN 9
+#define LED_BLUE 8
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 #pragma region teclado
@@ -39,19 +39,22 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 /**
  * @brief Valores por defecto de los umbrales de temperatura y luz, y valores maximos de temperatura y luz
- *    Valor de simulacion de sensor de temperatura DHT11 y fotocelda
+ *    Valor de simulacion de sensor de temperatura DHT11
  */
 int umbrTempHigh , umbrTempLow , umbrLuzHigh , umbrLuzLow ;
-#define DEFAULT_TEMPHIGH EEPROM.read(0)
-#define DEFAULT_TEMPLOW EEPROM.read(1)
-#define DEFAULT_LUZHIGH EEPROM.get(2, umbrLuzHigh)
-#define DEFAULT_LUZLOW EEPROM.get(3, umbrLuzLow)
+
+#define DEFAULT_TEMPHIGH 29
+#define DEFAULT_TEMPLOW 26
+#define DEFAULT_LUZHIGH 800
+#define DEFAULT_LUZLOW 300
 #define TEST_TEMP 20
 #define MAX_TEMP 125
 #define MAX_LIGTH 1023
 
+
+
 int readKeypad();
-void editar_valor(String titulo, byte *aux);
+void editar_valor(String titulo, byte *varimp);
 void color(unsigned char red, unsigned char green, unsigned char blue);
 
 /**
@@ -130,12 +133,12 @@ void color(unsigned char red, unsigned char green, unsigned char blue)  // the c
 }
 
 /**
- * @brief editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en la variable de dicha opcion del menu, dicho valor tambien se guardar en la memoria EEPROM,
- * y podra ser usado en caso de un reset en la placa y generara un posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto
+ * @brief editar_valor Genera un submenu segun la opcion y editar el valor que este guardado en variable de dicha opcion del menu y generara un
+ *  posible error si el valor ingresado no es valido o se incumplen los valores de los umbrales por defecto
  * @param titulo Titulo de la opcion del menu
- * @param aux Variable que esta guardada y se va a editar
+ * @param varimp Variable que esta guardada y se va a editar
  */
-void editar_valor(String titulo, int *aux, int posicion) {
+void editar_valor(String titulo, int *varimp, int posicion) {
   char pressedKey;
   menu.change_screen(&screen_5);
   lcd.setCursor(0, 0);
@@ -143,7 +146,7 @@ void editar_valor(String titulo, int *aux, int posicion) {
   lcd.setCursor(0, 0);
   lcd.print(titulo);
   lcd.setCursor(0, 1);
-  lcd.print(*aux);
+  lcd.print(*varimp);
   lcd.print(" edit=Press 0");  
   while ((pressedKey = keypad.getKey()) != '*' && pressedKey == NO_KEY && pressedKey != '#') {
   }
@@ -152,23 +155,23 @@ void editar_valor(String titulo, int *aux, int posicion) {
     return;
   }
   int number = readKeypad();
-  if (aux == &umbrTempLow && number < umbrTempHigh || aux == &umbrTempHigh && number > umbrTempLow && number <= MAX_TEMP) {
-    *aux = number;
+  if (varimp == &umbrTempLow && number < umbrTempHigh || varimp == &umbrTempHigh && number > umbrTempLow && number <= MAX_TEMP) {
+    *varimp = number;
     if(posicion == 2 || posicion == 3){
-      EEPROM.put(posicion, *aux);
+      EEPROM.put(posicion, *varimp);
     }else{
-      EEPROM.write(posicion, *aux);
+      EEPROM.write(posicion, *varimp);
     }
     menu.change_screen(lastScreen);
     return;
   }
 
-  if (aux == &umbrLuzLow && number < umbrLuzHigh || aux == &umbrLuzHigh && number > umbrLuzLow && number <= MAX_LIGTH) {
-    *aux = number;
+  if (varimp == &umbrLuzLow && number < umbrLuzHigh || varimp == &umbrLuzHigh && number > umbrLuzLow && number <= MAX_LIGTH) {
+    *varimp = number;
     if(posicion == 2 || posicion == 3){
-      EEPROM.put(posicion, *aux);
+      EEPROM.put(posicion, *varimp);
     }else{
-      EEPROM.write(posicion, *aux);
+      EEPROM.write(posicion, *varimp);
     }
     menu.change_screen(lastScreen);
     return;
@@ -193,28 +196,28 @@ void setup() {
   pinMode(LED_RED, OUTPUT);
   EasyBuzzer.setPin(BUZZER_PASIVO);
 
-  if (DEFAULT_TEMPHIGH == 255){
-    umbrTempHigh = 29;
-  }else{
+  if (EEPROM.read(0) == 255){
     umbrTempHigh = DEFAULT_TEMPHIGH;
+  }else{
+    umbrTempHigh = EEPROM.read(0);
   }
 
-  if (DEFAULT_TEMPLOW == 255){
-    umbrTempLow = 26;
-  }else{
+  if (EEPROM.read(1) == 255){
     umbrTempLow = DEFAULT_TEMPLOW;
+  }else{
+    umbrTempLow = EEPROM.read(1);
   }
 
-  if (DEFAULT_LUZHIGH == -1){
-    umbrLuzHigh = 800;
-  }else{
+  if (EEPROM.get(2, umbrLuzHigh) == -1){
     umbrLuzHigh = DEFAULT_LUZHIGH;
+  }else{
+    umbrLuzHigh = EEPROM.get(2, umbrLuzHigh);
   }
 
-  if (DEFAULT_LUZLOW == -1){
-    umbrLuzLow = 300;
-  }else{
+  if (EEPROM.get(3, umbrLuzLow) == -1){
     umbrLuzLow = DEFAULT_LUZLOW;
+  }else{
+    umbrLuzLow = EEPROM.get(3, umbrLuzLow);
   }
 
   screen_1_line_1.attach_function(1, []() {
@@ -258,6 +261,8 @@ void setup() {
     }
     umbrTempHigh = DEFAULT_TEMPHIGH;
     umbrTempLow = DEFAULT_TEMPLOW;
+    umbrLuzHigh = DEFAULT_LUZHIGH;
+    umbrLuzLow = DEFAULT_LUZLOW;
     menu.change_screen(lastScreen);
   });
   menu.update();
@@ -292,3 +297,5 @@ void loop() {
     EasyBuzzer.stopBeep();
   }
 }
+
+
